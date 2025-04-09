@@ -18,6 +18,7 @@ function App() {
 
   const [waters, setWaters] = useState(watersArray)
   const [newWaters, setNewWaters] = useState('Acqua di Gaetano')
+  const [oldWaters, setOldWaters] = useState('')
 
 
   const addWater = event => {
@@ -39,6 +40,21 @@ function App() {
     setWaters(updatedWaters)
   }
 
+  const modifyWater = (oldTitle) => {
+    if (newWaters === '') {
+      return
+    }
+    const updatedWaters = waters.map(water => {
+      if (water.title === oldTitle) {
+        return { ...water, title: newWaters }
+      }
+      return water
+    })
+    setWaters(updatedWaters)
+    setOldWaters('')
+    setNewWaters('')
+  }
+
 
   return (
     <>
@@ -57,6 +73,24 @@ function App() {
           onChange={(event) => setNewWaters(event.target.value)} />
         <br />
         <button>aggiungi acqua</button>
+      </form>
+      <form className="modify-water-form" onSubmit={(event) => {
+        event.preventDefault()
+        modifyWater(oldWaters)
+      }}>
+        <p>nome acqua da modificare</p>
+        <input
+          type="text"
+          value={oldWaters}
+          onChange={(event) => setOldWaters(event.target.value)} />
+        <br />
+        <p>nuovo nome dell'acqua</p>
+        <input
+          type="text"
+          value={newWaters}
+          onChange={(event) => setNewWaters(event.target.value)} />
+        <br />
+        <button>modifica acqua</button>
       </form>
     </>
   )

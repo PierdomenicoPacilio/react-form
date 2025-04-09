@@ -126,3 +126,22 @@ span {
 span:hover {
     transform: scale(1.3);
 }
+
+.modify-water-form {
+    margin-top: 2rem;
+    padding: 1rem;
+    border: 2px dashed #2b7a78;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #f5ffff;
+}
+
+.modify-water-form p {
+    margin: 0.5rem 0;
+    font-weight: 500;
+    color: #2b7a78;
+}
+
+.modify-water-form input[type="text"] {
+    margin-bottom: 1rem;
+}
