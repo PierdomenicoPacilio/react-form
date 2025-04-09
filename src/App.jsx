@@ -21,6 +21,9 @@ function App() {
 
 
   const addWater = event => {
+    if (newWaters === '') {
+      return
+    }
     event.preventDefault()
     const newWaterObject = {
       id: waters.length + 1,
@@ -31,10 +34,8 @@ function App() {
     setNewWaters('')
   }
 
-  const deleteWater = i => {
-    const updatedWaters = waters.filter((water, index) => {
-      return index !== i
-    })
+  const deleteWater = idToDelete => {
+    const updatedWaters = waters.filter(water => water.id !== idToDelete)
     setWaters(updatedWaters)
   }
 
@@ -43,10 +44,10 @@ function App() {
     <>
       <h1>React Waters Blog Form</h1>
       <ul>
-        {waters.map((water, i) =>
-          <li key={i}>
+        {waters.map(water =>
+          <li key={water.id}>
             {water.title}
-            <span onClick={() => deleteWater(i)}>X</span>
+            <span onClick={() => deleteWater(water.id)}>X</span>
           </li>)}
       </ul>
       <form onSubmit={addWater}>
@@ -54,7 +55,6 @@ function App() {
           type="text"
           value={newWaters}
           onChange={(event) => setNewWaters(event.target.value)} />
-
         <br />
         <button>aggiungi acqua</button>
       </form>
