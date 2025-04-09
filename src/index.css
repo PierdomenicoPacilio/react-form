@@ -1,15 +1,102 @@
-body {
-    padding: 20px 50px;
+/******** 
+reset 
+********/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-hr {
+img {
+    display: block;
+    width: 100%;
+}
+
+
+/******** 
+common
+********/
+
+.container {
+    display: flex;
+    width: 70%;
+    margin: 0 auto;
+    justify-content: space-between;
+}
+
+.debug {
+    /* display: none; */
+    border: 1px dashed #000000;
+}
+
+.none {
+    display: none;
+}
+
+.inl {
+    display: inline;
+}
+
+.inl-bl {
+    display: inline-block;
+}
+
+
+body {
+    background-color: white;
+}
+
+h1 {
+    text-align: center;
+    color: blue;
     margin-top: 20px;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 60%;
+    margin: 40px auto 0;
+    gap: 20px;
+    max-height: 300px;
+    overflow: scroll;
+}
+
+li {
+    width: calc((100% - 60px) / 4);
+    padding: 30px;
+    border: 1px solid black;
+    background-color: lightskyblue;
+    color: darkblue;
+    border-radius: 25px;
+    text-align: center;
+    font-weight: bolder;
+    position: relative;
+}
+
+li span {
+    position: absolute;
+    right: 12px;
+    top: 10px;
+    color: red;
+}
+
+form {
+    max-width: 60%;
+    margin: 40px auto 0;
+    text-align: center;
 }
 
 input {
-    margin-right: 20px;
+    padding: 10px;
+    border-radius: 15px;
 }
 
-div {
-    margin-top: 20px;
+button {
+    padding: 10px 15px;
+    border-radius: 10px;
+    background-color: blue;
+    color: white;
+    margin-top: 30px;
 }

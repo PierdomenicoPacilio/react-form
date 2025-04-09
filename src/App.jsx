@@ -16,36 +16,6 @@ const watersArray = [
 
 function App() {
 
-  // const [firstName, setFirstName] = useState('Piero')
-  // const [lastName, setLastName] = useState('Pacilio')
-
-
-  // const handleSubmit = event => {
-  //   event.preventDefault()
-  //   console.log(firstName + ' ' + lastName)
-  // }
-
-
-
-
-  // const [tasks, setTasks] = useState(['Mangiare la pizza'])
-  // const [newTasks, setNewTasks] = useState('')
-
-  // const addTask = event => {
-  //   event.preventDefault()
-  //   const updatedTasks = [...tasks, newTasks]
-  //   setTasks(updatedTasks)
-  //   setNewTasks('')
-  // }
-
-  // const deleteTask = i => {
-  //   const updatedTasks = tasks.filter((task, index) => {
-  //     return index !== i
-  //   })
-  //   setTasks(updatedTasks)
-  // }
-
-
   const [waters, setWaters] = useState(watersArray)
   const [newWaters, setNewWaters] = useState('Acqua di Gaetano')
 
@@ -61,53 +31,22 @@ function App() {
     setNewWaters('')
   }
 
+  const deleteWater = i => {
+    const updatedWaters = waters.filter((water, index) => {
+      return index !== i
+    })
+    setWaters(updatedWaters)
+  }
+
 
   return (
     <>
-      {/* <h2>Demo Form</h2>
-      <p>Inserisci Nome e Cognome</p>
-      <form action="#" onSubmit={handleSubmit}>
-
-        <input
-          type="text"
-          value={firstName}
-          onChange={(event) => setFirstName(event.target.value)} />
-
-        <input
-          type="text"
-          value={lastName}
-          onChange={(event) => setLastName(event.target.value)} />
-
-        <button>Invia il Form</button>
-
-      </form>
-      <hr />
-      <div>Il nome è {firstName} {lastName}</div>
-      <hr />
-
-      <h2>Demo ToDoList</h2>
-      <ul>
-        {tasks.map((task, i) =>
-          <li key={i}>
-            <h4>{task}  <button onClick={() => deleteTask(i)}>X</button></h4>
-
-          </li>
-        )}
-      </ul>
-      <form onSubmit={addTask}>
-
-        <input
-          type="text"
-          value={newTasks}
-          onChange={(event) => setNewTasks(event.target.value)} />
-
-        <button>aggiungi nuova task</button>
-
-      </form> */}
+      <h1>React Waters Blog Form</h1>
       <ul>
         {waters.map((water, i) =>
           <li key={i}>
             {water.title}
+            <span onClick={() => deleteWater(i)}>X</span>
           </li>)}
       </ul>
       <form onSubmit={addWater}>
@@ -116,6 +55,7 @@ function App() {
           value={newWaters}
           onChange={(event) => setNewWaters(event.target.value)} />
 
+        <br />
         <button>aggiungi acqua</button>
       </form>
     </>
